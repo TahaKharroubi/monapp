@@ -8,6 +8,8 @@ const request = require('request')
 const app = express()
 app.set('port', (process.env.PORT || 5000))
 
+const token = process.env.FB_PAGE_ACCESS_TOKEN
+
 app.get('/', function (req, res) { 
 res.send('Hello from my Boot')
 })
