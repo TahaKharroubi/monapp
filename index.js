@@ -11,3 +11,9 @@ app.set('port', (process.env.PORT || 5000))
 app.get('/', function (req, res) { 
 res.send('Hello from my Boot')
 })
+
+
+
+app.listen(app.get('port'), function() { 
+console.log('running on port', app.get('port'))
+})
