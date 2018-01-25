@@ -14,6 +14,11 @@ app.get('/', function (req, res) {
 res.send('Hello from my Boot')
 })
 
+
+app.get('/Contact', function (req, res) { 
+res.send('Contact kharroubi Taha taha.kharroubii@outlook.com')
+})
+
 app.get('/webhook/', function (req, res)
  { 
   if (req.query['hub.verify_token'] === 'taha') {  res.send(req.query['hub.challenge']) } else {  res.send('Error, wrong token') }})
