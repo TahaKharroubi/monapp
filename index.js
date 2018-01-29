@@ -2,16 +2,27 @@
 
 'use strict'
 
-const express = require('express')
-const bodyParser = require('body-parser')
+
+
 const request = require('request')
 const app = express()
+
+const 
+  express = require('express'),
+  bodyParser = require('body-parser');
+
+let app = express();
+app.use(bodyParser.urlencoded({"extended": false}));
+app.use(bodyParser.json());
+
+
+
 app.set('port', (process.env.PORT || 5000))
 
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 app.get('/', function (req, res) { 
-res.send('Hello from my Bot')
+res.send('Hello from my Bot v1')
 })
 
 
