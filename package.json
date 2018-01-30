@@ -12,6 +12,6 @@
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "request": "^2.71.0",
-     "aimlinterpreter": "^0.1.7",
+     "aimlinterpreter": "^0.1.7"
   }
 }
