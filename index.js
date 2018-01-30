@@ -5,7 +5,7 @@ const
   express = require('express'),
   bodyParser = require('body-parser');
 const request = require('request')
-
+const AIMLInterpreter = require('aimlinterpreter');
 let app = express();
 app.use(bodyParser.urlencoded({"extended": false}));
 app.use(bodyParser.json());
@@ -116,6 +116,25 @@ function callSendAPI(sender_psid, response) {
     }
   }); 
 }
+
+
+
+function getAiml(user, request) {
+  var aimlInterpreter = new AIMLInterpreter({name:'taha', age:'1 month', ufirst: user.first_name, ulast: user.last_name, gender: user.gender});
+  aimlInterpreter.loadAIMLFilesIntoArray(["responses/bot.aiml"]);
+  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.text.toUpperCase(), function(answer, wildCardArray, input){
+    if(answer){
+       roboResponse = answer;
+    }else{
+      roboResponse = "hmmm... I'm not sure what to say about that. Try saying help to see some options.";
+    }
+  });
+  // Save user input and aiml output to dynamoDb
+  logging.saveUser(user, request.sender);
+  logging.saveMsg(request.text, request.sender, request.timestamp, roboResponse);
+  return roboResponse;
+}
+
 
 
 
