@@ -130,8 +130,8 @@ function getAiml(user, request) {
     }
   });
   // Save user input and aiml output to dynamoDb
-  logging.saveUser(user, request.sender);
-  logging.saveMsg(request.text, request.sender, request.timestamp, roboResponse);
+  console.log(user, request.sender);
+  console.log(request.text, request.sender, request.timestamp, roboResponse);
   return roboResponse;
 }
 
