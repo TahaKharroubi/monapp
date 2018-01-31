@@ -99,7 +99,7 @@ function SendMessage(sender_psid, response) {
     "recipient": {
       "id": sender_psid
     },
-    "message": getAiml(response)
+    "message": 'Hi Bro'
   }
    console.log("Log X :"+JSON.stringify(request_body)+"-----"+response.text);
   
