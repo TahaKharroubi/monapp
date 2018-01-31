@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || 5000))
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 app.get('/', function (req, res) { 
-res.send('Dirty Code')
+res.send('Dirty Code 12')
 })
 
 
@@ -99,7 +99,7 @@ function SendMessage(sender_psid, response) {
     "recipient": {
       "id": sender_psid
     },
-    "message": getAiml(response.text)
+    "message": getAiml(response)
   }
 
   // Send the HTTP request to the Messenger Platform
