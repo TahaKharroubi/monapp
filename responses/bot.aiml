@@ -4,7 +4,7 @@
     <category><pattern>WHAT IS YOUR NAME</pattern><template>My name is <bot name='name'/>.</template></category>
     
     <category><pattern> *HI *</pattern><template>Hello Bro</template></category>
-    <category><pattern> *Hello *</pattern><template>Hello Bro</template></category>
+    <category><pattern> *HELLO *</pattern><template>Hello Bro</template></category>
     
     
     <category><pattern> * NAME *</pattern><template>My name is <bot name='name'/>.</template></category>
