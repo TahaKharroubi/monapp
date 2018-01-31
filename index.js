@@ -56,7 +56,7 @@ app.post('/webhook', (req, res) => {
   // Check if the event is a message or postback and
   // pass the event to the appropriate handler function
   if (webhook_event.message) {
-    handleMessage(sender_psid, webhook_event.message);        
+    handleMessage(sender_psid, webhook_event.message,body);        
   } else if (webhook_event.postback) {
     handlePostback(sender_psid, webhook_event.postback);
   }
@@ -75,7 +75,7 @@ app.post('/webhook', (req, res) => {
 });
 
 
-function handleMessage(sender_psid, received_message) {
+function handleMessage(sender_psid, received_message, body) {
 
   let response;
 
@@ -89,17 +89,17 @@ function handleMessage(sender_psid, received_message) {
   }  
   
   // Sends the response message
-  SendMessage(sender_psid, response);    
+  SendMessage(sender_psid, response, body);    
 }
 
 
-function SendMessage(sender_psid, response) {
+function SendMessage(sender_psid, response, body) {
   // Construct the message body
   let request_body = {
     "recipient": {
       "id": sender_psid
     },
-    "message": response
+    "message": getAiml(body,response)
   }
 
   // Send the HTTP request to the Messenger Platform
