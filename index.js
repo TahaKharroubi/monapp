@@ -56,7 +56,7 @@ app.post('/webhook', (req, res) => {
   // Check if the event is a message or postback and
   // pass the event to the appropriate handler function
   if (webhook_event.message) {
-    handleMessage(sender_psid, webhook_event.message,body);        
+    handleMessage(sender_psid, webhook_event.message);        
   } else if (webhook_event.postback) {
     handlePostback(sender_psid, webhook_event.postback);
   }
@@ -75,7 +75,7 @@ app.post('/webhook', (req, res) => {
 });
 
 
-function handleMessage(sender_psid, received_message, body) {
+function handleMessage(sender_psid, received_message) {
 
   let response;
 
@@ -89,17 +89,17 @@ function handleMessage(sender_psid, received_message, body) {
   }  
   
   // Sends the response message
-  SendMessage(sender_psid, response, body);    
+  SendMessage(sender_psid, response);    
 }
 
 
-function SendMessage(sender_psid, response, body) {
+function SendMessage(sender_psid, response) {
   // Construct the message body
   let request_body = {
     "recipient": {
       "id": sender_psid
     },
-    "message": getAiml( JSON.parse(body),response)
+    "message": getAiml(response)
   }
 
   // Send the HTTP request to the Messenger Platform
@@ -119,9 +119,9 @@ function SendMessage(sender_psid, response, body) {
 
 
 
-function getAiml(user, request) {
+function getAiml(request) {
   let  roboResponse ;
-  var aimlInterpreter = new AIMLInterpreter({name:'taha', age:'1 month', ufirst: user.first_name, ulast: user.last_name, gender: user.gender});
+  var aimlInterpreter = new AIMLInterpreter({name:'taha', age:'1 month', ufirst: 'Takoua', ulast: 'Kharroubi', gender: 'Female'});
   aimlInterpreter.loadAIMLFilesIntoArray(["responses/bot.aiml"]);
   aimlInterpreter.findAnswerInLoadedAIMLFiles(request.text.toUpperCase(), function(answer, wildCardArray, input){
     if(answer){
