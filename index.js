@@ -120,6 +120,7 @@ function SendMessage(sender_psid, response, body) {
 
 
 function getAiml(user, request) {
+  let  roboResponse ;
   var aimlInterpreter = new AIMLInterpreter({name:'taha', age:'1 month', ufirst: user.first_name, ulast: user.last_name, gender: user.gender});
   aimlInterpreter.loadAIMLFilesIntoArray(["responses/bot.aiml"]);
   aimlInterpreter.findAnswerInLoadedAIMLFiles(request.text.toUpperCase(), function(answer, wildCardArray, input){
