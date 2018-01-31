@@ -84,7 +84,7 @@ function handleMessage(sender_psid, received_message) {
 
     // Create the payload for a basic text message
     response = {
-      "text": received_message.text
+      "text":  getAiml(received_message.text)
     }
   }  
   
@@ -124,7 +124,7 @@ function getAiml(request) {
   let  roboResponse='Hi' ;
   var aimlInterpreter = new AIMLInterpreter({name:'taha', age:'1 month', ufirst: 'Takoua', ulast: 'Kharroubi', gender: 'Female'});
   aimlInterpreter.loadAIMLFilesIntoArray(["responses/bot.aiml"]);
-  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.text.toUpperCase(), function(answer, wildCardArray, input){
+  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.toUpperCase(), function(answer, wildCardArray, input){
     if(answer){
        roboResponse = answer;
     }else{
