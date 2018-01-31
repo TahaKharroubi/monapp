@@ -101,7 +101,7 @@ function SendMessage(sender_psid, response) {
     },
     "message": getAiml(response)
   }
-   console.log("Log X :"+request_body);
+   console.log("Log X :"+JSON.stringify(request_body));
   
   // Send the HTTP request to the Messenger Platform
   request({
