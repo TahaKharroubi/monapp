@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || 5000))
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 app.get('/', function (req, res) { 
-res.send(getAiml('Hello'))
+res.send('Dirty Code')
 })
 
 
@@ -123,7 +123,7 @@ function getAiml(request) {
   let  roboResponse ;
   var aimlInterpreter = new AIMLInterpreter({name:'taha', age:'1 month', ufirst: 'Takoua', ulast: 'Kharroubi', gender: 'Female'});
   aimlInterpreter.loadAIMLFilesIntoArray(["responses/bot.aiml"]);
-  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.toUpperCase(), function(answer, wildCardArray, input){
+  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.text.toUpperCase(), function(answer, wildCardArray, input){
     if(answer){
        roboResponse = answer;
     }else{
