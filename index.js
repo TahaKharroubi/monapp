@@ -101,7 +101,8 @@ function SendMessage(sender_psid, response) {
     },
     "message": getAiml(response)
   }
-
+   console.log("Log X :"+JSON.parse(request_body));
+  
   // Send the HTTP request to the Messenger Platform
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
