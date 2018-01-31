@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || 5000))
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 app.get('/', function (req, res) { 
-res.send('Hello from my Bot v1')
+res.send('Hello from my Bot v1'+getAiml('Hello'))
 })
 
 
