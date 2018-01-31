@@ -123,7 +123,7 @@ function getAiml(request) {
   let  roboResponse ;
   var aimlInterpreter = new AIMLInterpreter({name:'taha', age:'1 month', ufirst: 'Takoua', ulast: 'Kharroubi', gender: 'Female'});
   aimlInterpreter.loadAIMLFilesIntoArray(["responses/bot.aiml"]);
-  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.text.toUpperCase(), function(answer, wildCardArray, input){
+  aimlInterpreter.findAnswerInLoadedAIMLFiles(request.toUpperCase(), function(answer, wildCardArray, input){
     if(answer){
        roboResponse = answer;
     }else{
