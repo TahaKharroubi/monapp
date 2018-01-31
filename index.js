@@ -84,16 +84,16 @@ function handleMessage(sender_psid, received_message) {
 
     // Create the payload for a basic text message
     response = {
-      "text": `Je t'aime aussi`
+      "text": "${received_message.text}"
     }
   }  
   
   // Sends the response message
-  callSendAPI(sender_psid, response);    
+  SendMessage(sender_psid, response);    
 }
 
 
-function callSendAPI(sender_psid, response) {
+function SendMessage(sender_psid, response) {
   // Construct the message body
   let request_body = {
     "recipient": {
