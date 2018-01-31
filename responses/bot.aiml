@@ -2,6 +2,11 @@
 <aiml>
 
     <category><pattern>WHAT IS YOUR NAME</pattern><template>My name is <bot name='name'/>.</template></category>
+    
+    <category><pattern> *HI *</pattern><template>Hello Bro</template></category>
+    <category><pattern> *Hello *</pattern><template>Hello Bro</template></category>
+    
+    
     <category><pattern> * NAME *</pattern><template>My name is <bot name='name'/>.</template></category>
     <category><pattern>MY NAME IS <set name='clientName'>*</set></pattern><template>Hey <get name='clientName'/>!</template></category>
     <category><pattern>MY NAME IS <set name='clientName'>*</set></pattern><template><get name='clientName'/> <random><li>Hey</li><li>Hi</li><li>Hello</li></random> !</template></category>
