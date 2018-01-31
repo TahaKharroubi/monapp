@@ -99,7 +99,7 @@ function SendMessage(sender_psid, response) {
     "recipient": {
       "id": sender_psid
     },
-    "message": 'Hi Bro'
+    "message": response
   }
    console.log("Log X :"+JSON.stringify(request_body)+"-----"+response.text);
   
