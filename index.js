@@ -84,7 +84,7 @@ function handleMessage(sender_psid, received_message) {
 
     // Create the payload for a basic text message
     response = {
-      "text": received_message
+      "text": received_message.text
     }
   }  
   
