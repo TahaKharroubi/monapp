@@ -99,7 +99,7 @@ function SendMessage(sender_psid, response, body) {
     "recipient": {
       "id": sender_psid
     },
-    "message": getAiml(body,response)
+    "message": getAiml( JSON.parse(body),response)
   }
 
   // Send the HTTP request to the Messenger Platform
