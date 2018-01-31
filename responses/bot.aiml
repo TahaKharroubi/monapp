@@ -19,9 +19,6 @@ Bonjour
 </template>
 </category>
 
-<category>
-<pattern>*</pattern>
-<template>Veuillez SVP reformuler votre Question :)</template>
-</category>
+
 
 </aiml>
